@@ -4,6 +4,8 @@
 ##
 ## Usage:  Perl download_cid.pl [input.tsv] [Column for CID]
 ##
+## GitHub test version 1
+##
 
 use strict;
 use warnings;
@@ -22,6 +24,7 @@ open INPUTF,"<$cidfile";
 while(<INPUTF>){
   chomp;
   my @line= split(/\t/,$_);
+  
   if($line[$cidcol]){
       my $cid = $line[$cidcol];
       my $esearch = 'http://pubchem.ncbi.nlm.nih.gov/assay/assay.cgi?q=dcsv&ocfilter=act&&cid='.$cid;
@@ -36,5 +39,7 @@ while(<INPUTF>){
   } #endif ($line[$cidcol])
 }#while
 close INPUTF;
+
+## EOF test GitHub
 
 
